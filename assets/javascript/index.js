@@ -1,22 +1,12 @@
 var allProducts = [{name: "banana", category: "fruit"}, {name:"carrot", category: "vegetable"}, {name: "peanut", category: "nut"}, {name: "apple", category: "fruit"}, {name:"broccoli", category: "vegetable"}, {name: "almond", category: "nut"}];
-//var filter = "none";
 var cart = [];
 var activeProducts=allProducts;
 cart=[];
-// {name:"carrot", category:"vegetable"}
-// cart.push(allProducts[3]);
-/*$(".canAdd").on("click", function() {
-	console.log("sup");
-});
-*/
 
 function addToCart(element) {
 	var elementPos = allProducts.map(function(x) {return x.name; }).indexOf(element.id);
 	var objectFound = allProducts[elementPos];
 	var inCart = cart.map(function(x) {return x.name; }).indexOf(element.id);
-	console.log(elementPos);
-	console.log(objectFound);
-	console.log(inCart);
 	if(inCart<0) {
 		cart.push(objectFound);
 		updateView();
@@ -25,14 +15,13 @@ function addToCart(element) {
 		alert("THIS ITEM IS ALREADY IN CART!!!");
 		updateView();
 	}
-	// if (cart.indexOf(element.id)<0){
-	// 	console.log(cart.indexOf(element.id));
-	// 	cart.push(allProducts[allProducts.indexOf(element.id)]);
-	// }
+
 }
 
-function removeFromCart () {
-
+function removeFromCart (element) {
+	var inCart = cart.map(function(x) {return x.name; }).indexOf(element.id);
+	cart.splice(inCart,1);
+	updateView();
 }
 
 function changeFilter (filter) {
@@ -76,9 +65,7 @@ function updateView () {
 		var button = $("<button>");
 		$(button).addClass("btn btn-primary");
 		$(button).addClass(element.category);
-		$(button).addClass("canAdd");
 		$(button).attr("onClick", "addToCart(this)");
-		$(button).attr("data-cart", false);
 		$(button).attr("id", element.name);
 		$(button).text(element.name);
   		$("#itemArea").append(button); 
@@ -87,8 +74,7 @@ function updateView () {
 		var button = $("<button>");
 		$(button).addClass("btn btn-primary");
 		$(button).addClass(element.category);
-		$(button).addClass("canRemove");
-		$(button).attr("data-cart", true);
+		$(button).attr("onClick", "removeFromCart(this)");
 		$(button).attr("id", element.name);
 		$(button).text(element.name);
   		$("#cartArea").append(button); 
