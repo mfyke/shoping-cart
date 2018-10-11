@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Shop</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="./assets/css/style.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+</head>
+<body>
+	<div class="container">
+  		<div class="row">
+	    	<div class="col-xs-6 text-center">
+	      		<h3>This is where the list of items goes:</h3><br>
+	      		<div class="text-center" id="itemArea"></div>
+	    	</div>
+	    	<div class="col-xs-6 text-right">
+	      		<h3>This is where the cart is:</h3><br>
+	      		<div class="text-center" id="cartArea"></div>
+	    	</div>
+  		</div>
+	</div>
+
+	<div class="container">
+  		<div class="row">
+	    	<div id="filterArea" class="col-xs-12 text-center">
+	    	<h1 class="text-center">Filters</h1>
+	      		<button onClick="changeFilter('fruitF')" type="button" class="btn btn-primary">Fruit</button>
+	      		<button onClick="changeFilter('vegetableF')" type="button" class="btn btn-primary">Vegetable</button>
+	      		<button onClick="changeFilter('nutF')" type="button" class="btn btn-primary">Nut</button>
+	      		<button onClick="changeFilter('noneF')" type="button" class="btn btn-primary">None</button>
+	  		</div>
+  		</div>
+	</div>
+
+<script src="./assets/javascript/index.js"></script>
+
+</body>
+</html>
